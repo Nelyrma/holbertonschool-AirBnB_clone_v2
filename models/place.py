@@ -2,7 +2,8 @@
 """ Place Module for HBNB project """
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey
-from sqlalchemy.orm import relationship, backref 
+from sqlalchemy.orm import relationship, backref
+from os import getenv
 
 
 if getenv('HBNB_TYPE_STORAGE') == 'db':
