@@ -11,7 +11,7 @@ Base = declarative_base()
 
 class BaseModel:
     """A base class for all hbnb models"""
-    # adding some class attributes
+    # add some class attributes
     id = Column(String(60), primary_key=True, unique=True, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow(), nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow(), nullable=False)
@@ -34,7 +34,12 @@ class BaseModel:
                 self.updated_at = datetime.now()
             if "id" not in kwargs:
                 self.id = str(uuid.uuid4())
-                
+
+    def __str__(self):
+        """Returns a string representation of the instance"""
+        cls = (str(type(self)).split('.')[-1]).split('\'')[0]
+        return '[{}] ({}) {}'.format(cls, self.id, self.__dict__)
+
     def save(self):
         """Updates updated_at with current time when instance is changed"""
         from models import storage
@@ -55,7 +60,7 @@ class BaseModel:
             del(dictionary['_sa_instance_state'])
 
         return dictionary
-    
+
     def delete(self):
         """delete the current instance from the storage"""
         models.storage.delete(self)
