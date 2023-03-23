@@ -9,6 +9,7 @@ from sqlalchemy.sql.sqltypes import String, Integer, Float
 
 from os import getenv
 from models.review import Review
+from models.amenity import Amenity
 
 
 
@@ -40,3 +41,4 @@ else:
         price_by_night = ''
         latitude = ''
         longitude = ''
+        amenity_ids = []
