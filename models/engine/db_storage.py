@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Module define a class to manage db storage for hbnb clone """
+""" module define a class to manage db storage for hbnb clone """
 from sqlalchemy import (create_engine)
 from os import getenv
 from sqlalchemy import MetaData
