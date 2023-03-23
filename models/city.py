@@ -17,6 +17,6 @@ if getenv('HBNB_TYPE_STORAGE') == 'db':
                               cascade="all, delete, delete-orphan")
 else:
     class City(BaseModel):
-        """ The city class, contains state ID and name """
+        """ The city class contains state ID and name """
         name = ''
         state_id = ''
