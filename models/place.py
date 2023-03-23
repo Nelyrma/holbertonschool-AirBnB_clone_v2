@@ -3,10 +3,12 @@
 from models.base_model import BaseModel, Base
 from sqlalchemy.ext.declarative import declarative_base
 import models
+from sqlalchemy.orm import relationship, backref
 from sqlalchemy.sql.schema import Column, ForeignKey, Table
 from sqlalchemy.sql.sqltypes import String, Integer, Float
 
 from os import getenv
+from models.review import Review
 
 
 
@@ -24,8 +26,9 @@ if getenv('HBNB_TYPE_STORAGE') == 'db':
         price_by_night = Column(Integer, nullable=False, default=0)
         latitude = Column(Float, nullable=True)
         longitude = Column(Float, nullable=True)
-
-else:    
+        reviews = relationship("Review", backref="place",
+                               cascade="all, delete, delete-orphan")
+else:
     class Place(BaseModel):
         city_id = ''
         user_id = ''
