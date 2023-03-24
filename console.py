@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Console Module """
+"""The Console Module """
 import cmd
 import sys
 from models.base_model import BaseModel
@@ -246,7 +246,7 @@ class HBNBCommand(cmd.Cmd):
         print(print_list)
 
     def help_all(self):
-        """ Help information for the all command """
+        """ Help information for all command """
         print("Shows all objects, or all of a class")
         print("[Usage]: all <className>\n")
 
