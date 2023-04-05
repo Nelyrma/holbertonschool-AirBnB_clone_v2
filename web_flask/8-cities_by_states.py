@@ -13,7 +13,7 @@ def teardown(self):
     storage.close()
 
 
-@app.route('/cities_by_states', strict_slashes = False)
+@app.route('/cities_by_states', strict_slashes=False)
 def all_cities_by_states():
     """list cities by states"""
     cities_list = storage.all(State)
