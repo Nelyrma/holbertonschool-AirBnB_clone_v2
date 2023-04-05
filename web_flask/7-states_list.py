@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """start a flask web application"""
-
 from flask import Flask, render_template
 from models import storage
 from models.state import State
